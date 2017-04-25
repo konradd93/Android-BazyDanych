@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+<!--variable for two way databinding-->
+    <data>
+        <variable
+            name="phone"
+            type="pl.kondi.bazatelefonow.model.Phone" />
+    </data>
+
+    <TableLayout xmlns:tools="http://schemas.android.com/tools"
+
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="18dp"
+        android:paddingLeft="18dp"
+        android:paddingRight="18dp"
+        android:paddingTop="18dp"
+
+        tools:context="pl.kondi.bazatelefonow.EditActivity">
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="3">
+
+            <TextView
+                android:id="@+id/tvProducent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Producent:"
+                android:textSize="18sp"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:id="@+id/etProducent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:digits="AĄBCĆDEĘFGHIJKLŁMNŃOÓPQRSŚTUVWXYZŹŻaąbcćdeęfghijklłmnńoópqrsśtuvwxyzźż"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="@={phone.manufacturer}"
+                android:layout_weight="2"
+                android:layout_span="2"
+                android:imeOptions="flagNoFullscreen"
+                android:onFocusChange="@{phone::manufacturerOnFocusChange}"
+                android:afterTextChanged="@{phone::manufacturerAfterTextChanged}"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="3">
+
+            <TextView
+                android:id="@+id/tvModel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Model:"
+                android:textSize="18sp"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:id="@+id/etModel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:digits="AĄBCĆDEĘFGHIJKLŁMNŃOÓPQRSŚTUVWXYZŹŻaąbcćdeęfghijklłmnńoópqrsśtuvwxyzźż0123456789-/"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="@={phone.model}"
+                android:layout_weight="2"
+                android:layout_span="2"
+                android:imeOptions="flagNoFullscreen"
+                android:onFocusChange="@{phone::modelOnFocusChange}"
+                android:afterTextChanged="@{phone::modelAfterTextChanged}"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="3">
+
+            <TextView
+                android:id="@+id/tvWersjaAndroida"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:text="Wersja Androida:"
+                android:textSize="18sp"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:id="@+id/etWersjaAndroida"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:text="@={phone.android_version}"
+                android:layout_weight="2"
+                android:layout_span="2"
+                android:imeOptions="flagNoFullscreen"
+                android:onFocusChange="@{phone::androidVersionOnFocusChange}"
+                android:afterTextChanged="@{phone::androidVersionAfterTextChanged}"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="3">
+
+            <TextView
+                android:id="@+id/tvWWW"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="WWW:"
+                android:textSize="18sp"
+                android:layout_weight="1"/>
+            <!-- android:onFocusChange="@{phone.onFocusChange}"-->
+            <EditText
+                android:id="@+id/etWWW"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:digits="abcdefghijklmnopqrstuvwxyz-.:/?0123456789"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:onFocusChange="@{phone::wwwOnFocusChange}"
+                android:afterTextChanged="@{phone::wwwAfterTextChanged}"
+                android:text="@={phone.www}"
+                android:layout_weight="2"
+                android:layout_span="2"
+                android:imeOptions="flagNoFullscreen"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="3">
+
+            <Button
+                android:id="@+id/bWWW"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:onClick="goToWww"
+                android:layout_weight="1"
+                android:text="@string/goToWww"
+                android:enabled="@{phone.wwwValidated}"/>
+
+            <Button
+                android:id="@+id/bAnuluj"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:onClick="cancelEdit"
+                android:layout_weight="1"
+                android:text="@string/cancel_changes" />
+
+            <Button
+                android:id="@+id/bZapisz"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:onClick="savePhone"
+                android:layout_weight="1"
+                android:text="@string/save_phone"
+                android:enabled="@{phone.allValidated}"/>
+        </TableRow>
+
+
+    </TableLayout>
+</layout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="2"
+    android:background="@drawable/row_background_selector">
+    <TableLayout xmlns:tools="http://schemas.android.com/tools"
+
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="2dp"
+        android:paddingTop="2dp"
+        tools:context="pl.kondi.bazatelefonow.PhoneListActivity">
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2">
+    <TextView
+        android:id="@+id/tvItemManufacturer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:padding="5dp"
+        android:text="TextView"
+        android:textSize="22sp"
+        />
+
+    <TextView
+        android:id="@+id/tvItemModel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:padding="5dp"
+        android:text="TextView"
+        android:textSize="22sp" />
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

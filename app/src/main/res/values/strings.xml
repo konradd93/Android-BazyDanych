@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">BazaTelefonow</string>
+    <string name="action_delete_all_phones">Usuń wszystkie</string>
+    <string name="action_create_test">Dodaj testowe dane</string>
+    <string name="delete">Usuń</string>
+    <string name="cancel_changes">Anuluj</string>
+    <string name="save_phone">Zapisz</string>
+    <string name="goToWww">WWW</string>
+</resources>
