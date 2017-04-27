@@ -87,8 +87,10 @@ public class Phone extends BaseObservable implements Serializable {
     //metoda pomocnicza sprawdzająca czy buttony mogą już się pojawić
     //oraz zakomunikowanie ewentualnych zmian aby stan przycisku w xml się zmienił
     public void check() {
+        boolean lastStatusValidating = allValidated;
         allValidated = (modelValidated && manufacturerValidated && androidVersionValidated && wwwValidated);
-        notifyPropertyChanged(BR._all);
+        if(lastStatusValidating!=allValidated)
+            notifyPropertyChanged(BR._all);
     }
 
 }
